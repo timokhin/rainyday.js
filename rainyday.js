@@ -67,7 +67,7 @@ function RainyDay(canvasid, sourceid, width, height, opacity, blur) {
 	this.VARIABLE_FILL_STYLE = '#8ED6FF';
 
 	// collisions enabled by default
-	this.VARIABLE_COLLISIONS = false;
+	this.VARIABLE_COLLISIONS = true;
 
 	// assume default collision algorhitm
 	this.collision = this.COLLISION_SIMPLE;
@@ -506,6 +506,7 @@ RainyDay.prototype.COLLISION_SIMPLE = function(drop1, drop2) {
 	// force stopping the second drop
 	drop2.clear(true);
 
+    drop1.rad = drop1.rad + drop2.rad;
 	drop1.x = (drop1.x + drop2.x) / 2;
 	drop1.y = (drop1.y + drop2.y) / 2;
 };
